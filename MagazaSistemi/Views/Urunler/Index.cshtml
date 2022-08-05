@@ -1,0 +1,29 @@
+﻿@model List<UrunlerModel>
+<center>
+    <table class=" table-bordered">
+        <thead>
+            <tr>
+                <th style="padding:30px 30px 30px" scope="col"> Id </th>
+                <th style="padding:30px 30px 30px" scope="col"> Ürün Adı </th>
+                <th style="padding:30px 30px 30px" scope="col"> Ürün Fiyatı </th>
+                <th style="padding:30px 30px 30px" scope="col">  </th>
+                <th style="padding:30px 30px 30px" scope="col">  </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+
+                    <form method="post" asp-controller="Urun" asp-action="UrunSil">
+                    <td style="padding:30px 30px 30px"> @item.Id </td>
+                    <td style="padding:30px 30px 30px"> @item.UrunAd </td>
+                    <td style="padding:30px 30px 30px"> @item.UrunFiyat </td>
+                    <td style="padding:30px 30px 30px"><button class="btn btn-danger" asp-controller="Urunler" asp-action="UrunSil" asp-route-Id="@item.Id"><i class="fa-solid fa-trash-can"></i></button></td>
+                    </form>
+                    <td style="padding:30px 30px 30px"><a class="btn btn-success" asp-controller="Urunler" asp-action="UrunGuncelle" asp-route-Id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>

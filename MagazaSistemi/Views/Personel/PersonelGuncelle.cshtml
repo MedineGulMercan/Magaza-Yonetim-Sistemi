@@ -1,0 +1,63 @@
+﻿@using Dal.Concrete
+@model PersonellerModel
+<style>
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+<form method="post" enctype="multipart/form-data" asp-controller="Personel" asp-action="PersonelGuncelle">
+    <div class="row">
+        <div class="col-2">
+            <label>Id : </label>
+        </div>
+        <div class="col-4">
+            <input type="text" name="Id" class="form-control" maxlength="20" disabled required value="@Model.Id">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Personel Adı : </label>
+        </div>
+        <div class="col-4">
+            <input type="text" name="PersonelAd" class="form-control" placeholder="Personel Adı Giriniz..." maxlength="20" required value="@Model.PersonelAd">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Personel Soyadı : </label>
+        </div>
+        <div class="col-4">
+            <input type="text" name="PersonelSoyad" class="form-control" placeholder="Personel Soyadı Giriniz..." maxlength="20" required value="@Model.PersonelSoyad">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Personel Mağazası : </label>
+        </div>
+        <div class="col-4">
+            <select id="mySelect" name="MagazaId" required class="form-control">
+                @foreach (var item in Model.magazaModelList)
+                {
+                    if (@Model.MagazaId == item.Id)
+                    {
+                        <option value="@item.Id" selected>@item.MagazaAd</option>
+                    }
+                    else
+                    {
+                        <option value="@item.Id">@item.MagazaAd</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+            <div class=" form-group">
+                <button type="submit" class=" btn btn-success">GÜNCELLE</button>
+            </div>
+        </div>
+    </div>
+</form>

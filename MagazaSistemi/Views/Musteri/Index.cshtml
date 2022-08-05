@@ -1,0 +1,32 @@
+﻿@model List<MusteriModel>
+<center>
+    <table class=" table-bordered">
+        <thead>
+            <tr>
+                <th style="padding:30px 30px 30px" scope="col"> Id </th>
+                <th style="padding:30px 30px 30px" scope="col"> Musteri Adı </th>
+                <th style="padding:30px 30px 30px" scope="col"> Musteri Soyadı </th>
+                <th style="padding:30px 30px 30px" scope="col">  </th>
+                <th style="padding:30px 30px 30px" scope="col">  </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <form method="post" asp-controller="Musteri" asp-action="MusteriSil">
+                    <td style="padding : 30px 30px 30px"> @item.Id </td>
+                    <td style="padding : 30px 30px 30px"> @item.MusteriAd </td>
+                    <td style="padding : 30px 30px 30px"> @item.MusteriSoyad </td>
+                    <td style="padding : 30px 30px 30px"><button class="btn btn-danger" asp-controller="Musteri" asp-action="MusteriSil" asp-route-Id="@item.Id"><i class="fa-solid fa-trash-can"></i></button></td>
+                    </form>
+                    <td style="padding : 30px 30px 30px"> <a class="btn btn-success" asp-controller="Musteri" asp-action="MusteriGuncelle" asp-route-Id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+
+
+
+

@@ -1,0 +1,41 @@
+﻿@model MusteriModel
+<style>
+    input{
+        margin-bottom:10px;
+    }
+</style>
+<form method="post" enctype="multipart/form-data" asp-controller="Musteri" asp-action="MusteriGuncelle">
+    <div class="row">
+        <div class="col-2">
+            <label>Id : </label>
+        </div>
+        <div class="col-4">
+            <input type="text" name="Id" class="form-control" disabled maxlength="20" required value="@Model.Id">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Müşteri Adı : </label>
+        </div>
+        <div class="col-4">
+            <input type="text" name="MusteriAd" class="form-control" placeholder="Müşteri Adı Giriniz..." maxlength="20" required value="@Model.MusteriAd">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Müşteri Soyadı : </label>
+        </div>
+        <div class="col-4">
+            <input type="text" name="MusteriSoyad" class="form-control" placeholder="Müşteri Soyadı Giriniz..." maxlength="20" required value="@Model.MusteriSoyad">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+            <div class=" form-group">
+                <button type="submit" class=" btn btn-success">GÜNCELLE</button>
+            </div>
+        </div>
+    </div>
+</form>

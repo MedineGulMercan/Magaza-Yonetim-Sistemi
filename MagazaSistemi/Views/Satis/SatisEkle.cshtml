@@ -1,0 +1,56 @@
+﻿@model SatisModel
+<style>
+    select {
+        margin-bottom: 10px;
+    }
+</style>
+<form method="post" enctype="multipart/form-data" asp-controller="Satis" asp-action="SatisEkle">
+    <div class="row">
+        <div class="col-2">
+            <label>Personel : </label>
+        </div>
+        <div class="col-4">
+            <select name="PersonelId" required class="form-control">
+                @foreach (var item in Model.personellerModelList)
+                {
+                    <option value="@item.Id">@item.PersonelAd</option>
+                }
+            </select><!--Müşteri Adı-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Musteri : </label>
+        </div>
+        <div class="col-4">
+            <select name="MusteriId" required class="form-control">
+                @foreach (var item in Model.musteriModelList)
+                {
+                    <option value="@item.Id">@item.MusteriAd</option>
+                }
+            </select><!--Personel Adı-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <label>Ürün : </label>
+        </div>
+        <div class="col-4">
+            <select name="UrunId" required class="form-control">
+                @foreach (var item in Model.urunlerModelList)
+                {
+                    <option value="@item.Id">@item.UrunAd</option>
+                }
+            </select><!--ŞirketAdı-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+            <div class=" form-group">
+                <button type="submit" class=" btn btn-success">EKLE</button>
+            </div>
+        </div>
+    </div>
+</form>

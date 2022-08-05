@@ -1,0 +1,21 @@
+﻿@model List<SatisDto>
+<center>
+    <table class=" table-bordered">
+        <thead>
+            <tr>
+                <th style="padding:10px 10px 10px" scope="col"> SATIŞ RAPORU </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="padding : 10px 10px 10px"> @item.MagazaAd mağzasında @item.MusteriAd adlı müşteriye @item.PersonelAd adlı personel tarafından @item.UrunAd ürünü @item.UrunFiyat  liraya satılmıştır. - @item.Belesmi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+
+
+

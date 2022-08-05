@@ -1,0 +1,34 @@
+﻿@model List<MagazaSistemi.Models.PersonellerDto>
+<center>
+    <table class=" table-bordered">
+        <thead>
+            <tr>
+                <th style="padding:30px 30px 30px" scope="col">Id </th>
+                <th style="padding:30px 30px 30px" scope="col">Adı </th>
+                <th style="padding:30px 30px 30px" scope="col">Soyadı </th>
+                <th style="padding:30px 30px 30px" scope="col">Mağaza</th>
+                <th style="padding:30px 30px 30px" scope="col">  </th>
+                <th style="padding:30px 30px 30px" scope="col">  </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <form method="post" asp-controller="Personel" asp-action="PersonelSil">
+                    <td style="padding:30px 30px 30px"> @item.Id </td>
+                    <td style="padding:30px 30px 30px"> @item.PersonelAd </td>
+                    <td style="padding:30px 30px 30px"> @item.PersonelSoyad </td>
+                    <td style="padding:30px 30px 30px"> @item.MagazaAd </td>
+                    <td style="padding:30px 30px 30px"><button class="btn btn-danger" asp-controller="Personel" asp-action="PersonelSil" asp-route-Id="@item.Id"><i class="fa-solid fa-trash-can"></i></button></td>
+                    </form>
+                    <td style="padding:30px 30px 30px"> <a class="btn btn-success" asp-controller="Personel" asp-action="PersonelGuncelle" asp-route-Id="@item.Id"><i class="fa-solid fa-pen-to-square"></i> </a> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+
+
+
+
